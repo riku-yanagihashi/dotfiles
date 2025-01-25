@@ -1,0 +1,55 @@
+[alias]
+    aa = add -A
+    cm = commit -m
+    co = checkout
+    cod = checkout develop
+    com = checkout main
+    cob = checkout -b
+    br = branch
+    st = status
+
+[fetch]
+    prune = true
+
+[pull]
+    ff = only
+
+[rebase]
+    autostash = true
+    abbreviateCommands = true
+    autosqaush = true
+
+[color]
+    ui = auto
+
+[push]
+    default = current
+
+[grep]
+    lineNumber = true
+
+[include]
+    path = ~/.gitconfigs/global.gitconfig
+
+[init]
+    defaultBranch = main
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
+    line-numbers = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+[user]
+	email = riku.yanagihashi0420@gmail.com
