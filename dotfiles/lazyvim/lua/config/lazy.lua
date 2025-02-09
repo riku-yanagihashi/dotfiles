@@ -21,6 +21,10 @@ require("lazy").setup({
   },
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    
+    -- Neovim-Unity の LSP 設定を統合
+    { import = "lazyvim.plugins.extras.lang.omnisharp" },
+
 
     { import = "lazyvim.plugins.extras.ai.supermaven" },
 

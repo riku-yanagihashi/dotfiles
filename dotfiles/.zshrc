@@ -35,3 +35,5 @@ unfunction source
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && zsh-defer source "$HOME/.sdkman/bin/sdkman-init.sh"
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet@8/libexec"
+export PATH="$DOTNET_ROOT/bin:$PATH"

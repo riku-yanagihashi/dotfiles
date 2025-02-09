@@ -9,6 +9,10 @@ local del = vim.keymap.del
 del("n", "<S-h>")
 del("n", "<S-l>")
 
+
+
+
+
 -- del move lines
 del("n", "<A-j>")
 del("n", "<A-k>")
@@ -27,6 +31,39 @@ map("n", "<leader>sE", cmd("FzfLua diagnostics_workspace severity_limit=1"), { d
 
 -- Lsp
 map({ "n", "v" }, "ga", vim.lsp.buf.code_action, { desc = "Code action" })
+
+-- `using` の自動追加
+map("n", "<leader>oi", function()
+  vim.lsp.buf.code_action({
+    filter = function(action)
+      return action.title:match("Add 'using'")
+    end,
+    apply = true,
+  })
+end, { desc = "Organize Imports (Add missing using)" })
+
+-- 不要な `using` を削除するショートカット
+vim.keymap.set("n", "<leader>ou", function()
+  vim.lsp.buf.code_action({
+    filter = function(action)
+      return action.title:match("Remove Unnecessary Usings")
+    end,
+    apply = true,
+  })
+end, { desc = "Remove unnecessary usings" })
+
+
+-- フォーマット (C# のコードを `dotnet format` で整える)
+map("n", "<leader>f", function()
+  vim.lsp.buf.format()
+end, { desc = "Format code" })
+
+-- Code Action のポップアップサイズを拡大
+vim.lsp.handlers["textDocument/codeAction"] = vim.lsp.with(vim.lsp.handlers.code_action, {
+  border = "rounded", -- ボーダーを角丸に
+  width = 80,         -- 横幅を 80 に設定
+  height = 20,        -- 高さを 20 に設定
+})
 
 
 -- Toggle statusline

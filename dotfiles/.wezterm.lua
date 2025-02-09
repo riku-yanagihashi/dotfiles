@@ -26,8 +26,17 @@ font.register_fonts({
 	{ name = "Monaspace Neon", mod = "font-monaspace-neon" },
 	{ name = "Monaspace Krypton", mod = "font-monaspace-krypton", default = true },
 	{ name = "Ubuntu Mono", mod = "font-ubuntu" },
+  { name = "Noto Sans CJK JP", mod = "font-noto-cjk" },
 })
 font.load_default(config)
+
+-- WezTerm でのフォールバック設定を追加
+config.font = wezterm.font_with_fallback({
+	"Ubuntu Mono",
+	"JetBrains Mono",
+	"Noto Sans CJK JP",  -- 日本語フォントを明示的に追加
+	"Noto Color Emoji",  -- 絵文字対応
+})
 
 config.window_padding = {
 	left = 0,

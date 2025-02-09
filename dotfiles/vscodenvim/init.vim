@@ -1,5 +1,6 @@
 set clipboard&
 set clipboard=unnamedplus 
+set shiftwidth=4
 if has('mac')
     return
 endif

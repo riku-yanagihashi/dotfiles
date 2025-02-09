@@ -48,8 +48,18 @@
 
 [merge]
     conflictstyle = diff3
+	tool = nvimdiff
 
 [diff]
     colorMoved = default
 [user]
 	email = riku.yanagihashi0420@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool "vscode"]
+	cmd = "code --wait "
+[mergetool "nvimdiff"]
+	cmd = "nvim -d   "
